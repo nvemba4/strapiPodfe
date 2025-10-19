@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "navabars",
+  "info": {
+    "singularName": "navabar",
+    "pluralName": "navabars",
+    "displayName": "navabar"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doacaos",
+  "info": {
+    "singularName": "doacao",
+    "pluralName": "doacaos",
+    "displayName": "Doacao"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "text"
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "local": {
+      "type": "string"
+    },
+    "titulocabecalho": {
+      "type": "text"
+    },
+    "necessidade": {
+      "type": "text"
+    },
+    "valor": {
+      "type": "text"
+    },
+    "bannerhome": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
