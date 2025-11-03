@@ -496,6 +496,31 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAdAd extends Struct.CollectionTypeSchema {
+  collectionName: 'ads';
+  info: {
+    displayName: 'Ad';
+    pluralName: 'ads';
+    singularName: 'ad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ad: Schema.Attribute.DynamicZone<['block.ads']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::ad.ad'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAdshorizontalAdshorizontal
   extends Struct.CollectionTypeSchema {
   collectionName: 'adshorizontals';
@@ -703,21 +728,35 @@ export interface ApiComentarioComentario extends Struct.CollectionTypeSchema {
     singularName: 'comentario';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     autor: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    evento: Schema.Attribute.Relation<'oneToOne', 'api::evento.evento'>;
+    evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
+    eventoId: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::comentario.comentario'
     > &
       Schema.Attribute.Private;
-    podcaste: Schema.Attribute.Relation<'oneToOne', 'api::podcaste.podcaste'>;
+    noticia: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::noticiaprincipal.noticiaprincipal'
+    >;
+    noticiaId: Schema.Attribute.Integer;
+    parent: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::comentario.comentario'
+    >;
+    podcaste: Schema.Attribute.Relation<'manyToOne', 'api::podcaste.podcaste'>;
     publicado: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     texto: Schema.Attribute.Text;
@@ -827,6 +866,41 @@ export interface ApiEpisodiosrecenteEpisodiosrecente
   };
 }
 
+export interface ApiEquipaEquipa extends Struct.CollectionTypeSchema {
+  collectionName: 'equipas';
+  info: {
+    displayName: 'equipa';
+    pluralName: 'equipas';
+    singularName: 'equipa';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    imagem: Schema.Attribute.Media<'images'>;
+    linkfacebook: Schema.Attribute.String;
+    linkind: Schema.Attribute.String;
+    linkinstagram: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::equipa.equipa'
+    > &
+      Schema.Attribute.Private;
+    nome: Schema.Attribute.String;
+    ocupacao: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
   collectionName: 'eventos';
   info: {
@@ -841,6 +915,10 @@ export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
     bloco: Schema.Attribute.String;
     capacidade: Schema.Attribute.Integer;
     categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
     contato: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1118,6 +1196,71 @@ export interface ApiNavabarNavabar extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNewsrelatedNewsrelated extends Struct.CollectionTypeSchema {
+  collectionName: 'newsrelateds';
+  info: {
+    displayName: 'newsrelated';
+    pluralName: 'newsrelateds';
+    singularName: 'newsrelated';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::newsrelated.newsrelated'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    related: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNossosParceiroNossosParceiro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nossos_parceiros';
+  info: {
+    displayName: 'NossosParceiro';
+    pluralName: 'nossos-parceiros';
+    singularName: 'nossos-parceiro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    imagebannerbackground: Schema.Attribute.Media<'images'>;
+    imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    linkunico: Schema.Attribute.UID;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nossos-parceiro.nossos-parceiro'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNoticiaprincipalNoticiaprincipal
   extends Struct.CollectionTypeSchema {
   collectionName: 'noticiaprincipals';
@@ -1131,7 +1274,12 @@ export interface ApiNoticiaprincipalNoticiaprincipal
   };
   attributes: {
     autor: Schema.Attribute.String;
+    bloco: Schema.Attribute.String;
     categoria: Schema.Attribute.String;
+    comentario: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1147,7 +1295,7 @@ export interface ApiNoticiaprincipalNoticiaprincipal
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     subtitulo: Schema.Attribute.Text;
-    tag: Schema.Attribute.Relation<'oneToOne', 'api::tag.tag'>;
+    tag: Schema.Attribute.Text;
     titulo: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1188,6 +1336,44 @@ export interface ApiNoticiasecundariaNoticiasecundaria
   };
 }
 
+export interface ApiPaginaparceiroPaginaparceiro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'paginaparceiros';
+  info: {
+    displayName: 'paginaparceiro';
+    pluralName: 'paginaparceiros';
+    singularName: 'paginaparceiro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaBotao: Schema.Attribute.String;
+    ctaDescricao: Schema.Attribute.String;
+    ctaTitulo: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::paginaparceiro.paginaparceiro'
+    > &
+      Schema.Attribute.Private;
+    parceirosDescricao: Schema.Attribute.String;
+    parceirositem: Schema.Attribute.DynamicZone<['parceiros.valores']>;
+    parceirosTitulo: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    subtitulo: Schema.Attribute.String;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiParceiroParceiro extends Struct.CollectionTypeSchema {
   collectionName: 'parceiros';
   info: {
@@ -1217,6 +1403,38 @@ export interface ApiParceiroParceiro extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiParceirositemParceirositem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'parceirositems';
+  info: {
+    displayName: 'parceirositem';
+    pluralName: 'parceirositems';
+    singularName: 'parceirositem';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parceirositem.parceirositem'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPodcastePodcaste extends Struct.CollectionTypeSchema {
   collectionName: 'podcastes';
   info: {
@@ -1230,6 +1448,10 @@ export interface ApiPodcastePodcaste extends Struct.CollectionTypeSchema {
   attributes: {
     bloco: Schema.Attribute.String;
     categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1902,6 +2124,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::ad.ad': ApiAdAd;
       'api::adshorizontal.adshorizontal': ApiAdshorizontalAdshorizontal;
       'api::adsvertical.adsvertical': ApiAdsverticalAdsvertical;
       'api::article.article': ApiArticleArticle;
@@ -1912,6 +2135,7 @@ declare module '@strapi/strapi' {
       'api::doacao.doacao': ApiDoacaoDoacao;
       'api::doepodfebaner.doepodfebaner': ApiDoepodfebanerDoepodfebaner;
       'api::episodiosrecente.episodiosrecente': ApiEpisodiosrecenteEpisodiosrecente;
+      'api::equipa.equipa': ApiEquipaEquipa;
       'api::evento.evento': ApiEventoEvento;
       'api::eventoshomebaner.eventoshomebaner': ApiEventoshomebanerEventoshomebaner;
       'api::eventoshomeslider.eventoshomeslider': ApiEventoshomesliderEventoshomeslider;
@@ -1921,9 +2145,13 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::menu.menu': ApiMenuMenu;
       'api::navabar.navabar': ApiNavabarNavabar;
+      'api::newsrelated.newsrelated': ApiNewsrelatedNewsrelated;
+      'api::nossos-parceiro.nossos-parceiro': ApiNossosParceiroNossosParceiro;
       'api::noticiaprincipal.noticiaprincipal': ApiNoticiaprincipalNoticiaprincipal;
       'api::noticiasecundaria.noticiasecundaria': ApiNoticiasecundariaNoticiasecundaria;
+      'api::paginaparceiro.paginaparceiro': ApiPaginaparceiroPaginaparceiro;
       'api::parceiro.parceiro': ApiParceiroParceiro;
+      'api::parceirositem.parceirositem': ApiParceirositemParceirositem;
       'api::podcaste.podcaste': ApiPodcastePodcaste;
       'api::podefe-midia.podefe-midia': ApiPodefeMidiaPodefeMidia;
       'api::publicidade.publicidade': ApiPublicidadePublicidade;

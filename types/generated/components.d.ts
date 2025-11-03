@@ -1,5 +1,15 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlockAds extends Struct.ComponentSchema {
+  collectionName: 'components_block_ads';
+  info: {
+    displayName: 'Ads';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images', true>;
+  };
+}
+
 export interface BlockHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_block_hero_sections';
   info: {
@@ -22,6 +32,27 @@ export interface ElementosLogo extends Struct.ComponentSchema {
   attributes: {
     imagem: Schema.Attribute.Media<'images'>;
   };
+}
+
+export interface ParceirosValorItem extends Struct.ComponentSchema {
+  collectionName: 'components_parceiros_valor_items';
+  info: {
+    description: 'Bloco de valores exibidos na p\u00E1gina de parceiros';
+    displayName: 'Valor Item';
+  };
+  attributes: {
+    descricao: Schema.Attribute.Text & Schema.Attribute.Required;
+    icone: Schema.Attribute.Media<'images'>;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ParceirosValores extends Struct.ComponentSchema {
+  collectionName: 'components_parceiros_valores';
+  info: {
+    displayName: 'valores';
+  };
+  attributes: {};
 }
 
 export interface SharedMedia extends Struct.ComponentSchema {
@@ -89,8 +120,11 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'block.ads': BlockAds;
       'block.hero-section': BlockHeroSection;
       'elementos.logo': ElementosLogo;
+      'parceiros.valor-item': ParceirosValorItem;
+      'parceiros.valores': ParceirosValores;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

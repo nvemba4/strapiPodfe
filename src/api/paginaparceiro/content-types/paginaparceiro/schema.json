@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paginaparceiros",
+  "info": {
+    "singularName": "paginaparceiro",
+    "pluralName": "paginaparceiros",
+    "displayName": "paginaparceiro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "subtitulo": {
+      "type": "string"
+    },
+    "parceirosTitulo": {
+      "type": "string"
+    },
+    "parceirosDescricao": {
+      "type": "string"
+    },
+    "ctaTitulo": {
+      "type": "string"
+    },
+    "ctaDescricao": {
+      "type": "string"
+    },
+    "ctaBotao": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "parceirositem": {
+      "type": "dynamiczone",
+      "components": [
+        "parceiros.valores"
+      ]
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

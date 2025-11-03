@@ -90,6 +90,12 @@
     },
     "videoId": {
       "type": "string"
+    },
+    "comentarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comentario.comentario",
+      "mappedBy": "podcaste"
     }
   }
 }

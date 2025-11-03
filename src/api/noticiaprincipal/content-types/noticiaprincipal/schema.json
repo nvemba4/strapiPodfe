@@ -40,9 +40,16 @@
       "type": "string"
     },
     "tag": {
+      "type": "text"
+    },
+    "bloco": {
+      "type": "string"
+    },
+    "comentario": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag.tag"
+      "relation": "oneToMany",
+      "target": "api::comentario.comentario",
+      "mappedBy": "noticia"
     }
   }
 }

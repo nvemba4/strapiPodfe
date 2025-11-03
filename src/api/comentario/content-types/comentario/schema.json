@@ -7,7 +7,7 @@
     "displayName": "Comentario"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -22,13 +22,42 @@
     },
     "evento": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::evento.evento"
+      "relation": "manyToOne",
+      "target": "api::evento.evento",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
     },
     "podcaste": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::podcaste.podcaste"
+      "relation": "manyToOne",
+      "target": "api::podcaste.podcaste",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "noticia": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::noticiaprincipal.noticiaprincipal",
+      "onDelete": "cascade",
+      "inversedBy": "comentario"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::comentario.comentario",
+      "inversedBy": "comentarios"
+    },
+    "comentarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comentario.comentario",
+      "mappedBy": "parent"
+    },
+    "noticiaId": {
+      "type": "integer"
+    },
+    "eventoId": {
+      "type": "integer"
     }
   }
 }
