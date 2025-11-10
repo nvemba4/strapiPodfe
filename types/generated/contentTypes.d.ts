@@ -696,7 +696,7 @@ export interface ApiBioBio extends Struct.CollectionTypeSchema {
     singularName: 'bio';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
