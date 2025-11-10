@@ -688,6 +688,32 @@ export interface ApiBannerHeroBannerHero extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBioBio extends Struct.CollectionTypeSchema {
+  collectionName: 'bios';
+  info: {
+    displayName: 'Bio';
+    pluralName: 'bios';
+    singularName: 'bio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::bio.bio'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -2130,6 +2156,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::banner-hero.banner-hero': ApiBannerHeroBannerHero;
+      'api::bio.bio': ApiBioBio;
       'api::category.category': ApiCategoryCategory;
       'api::comentario.comentario': ApiComentarioComentario;
       'api::doacao.doacao': ApiDoacaoDoacao;
