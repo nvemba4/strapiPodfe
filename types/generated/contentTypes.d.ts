@@ -767,12 +767,25 @@ export interface ApiComentarioComentario extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     evento: Schema.Attribute.Relation<'manyToOne', 'api::evento.evento'>;
     eventoId: Schema.Attribute.Integer;
+    exploreNossoUniverso: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::explore-nosso-universo.explore-nosso-universo'
+    >;
+    heroes: Schema.Attribute.Relation<'manyToOne', 'api::heroes.heroes'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::comentario.comentario'
     > &
       Schema.Attribute.Private;
+    momentosImpactantes: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::momentos-impactantes.momentos-impactantes'
+    >;
+    momentosQueMarcaram: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::momentos-que-marcaram.momentos-que-marcaram'
+    >;
     noticia: Schema.Attribute.Relation<
       'manyToOne',
       'api::noticiaprincipal.noticiaprincipal'
@@ -785,10 +798,19 @@ export interface ApiComentarioComentario extends Struct.CollectionTypeSchema {
     podcaste: Schema.Attribute.Relation<'manyToOne', 'api::podcaste.podcaste'>;
     publicado: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
+    quemSomos: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::quem-somos.quem-somos'
+    >;
     texto: Schema.Attribute.Text;
+    ultimosEpisodios: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::ultimos-episodios.ultimos-episodios'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    workshop: Schema.Attribute.Relation<'manyToOne', 'api::workshop.workshop'>;
   };
 }
 
@@ -1079,6 +1101,63 @@ export interface ApiEventosprimarioEventosprimario
   };
 }
 
+export interface ApiExploreNossoUniversoExploreNossoUniverso
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'explore_nosso_universos';
+  info: {
+    displayName: 'ExploreNossoUniverso';
+    pluralName: 'explore-nosso-universos';
+    singularName: 'explore-nosso-universo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::explore-nosso-universo.explore-nosso-universo'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1108,6 +1187,62 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeroesHeroes extends Struct.CollectionTypeSchema {
+  collectionName: 'heroess';
+  info: {
+    displayName: 'Heroes';
+    pluralName: 'heroess';
+    singularName: 'heroes';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::heroes.heroes'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
   };
 }
 
@@ -1191,6 +1326,120 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMomentosImpactantesMomentosImpactantes
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'momentos_impactantess';
+  info: {
+    displayName: 'MomentosImpactantes';
+    pluralName: 'momentos-impactantess';
+    singularName: 'momentos-impactantes';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::momentos-impactantes.momentos-impactantes'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
+  };
+}
+
+export interface ApiMomentosQueMarcaramMomentosQueMarcaram
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'momentos_que_marcarams';
+  info: {
+    displayName: 'MomentosQueMarcaram';
+    pluralName: 'momentos-que-marcarams';
+    singularName: 'momentos-que-marcaram';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::momentos-que-marcaram.momentos-que-marcaram'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
   };
 }
 
@@ -1587,6 +1836,62 @@ export interface ApiPublicidadePublicidade extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiQuemSomosQuemSomos extends Struct.CollectionTypeSchema {
+  collectionName: 'quem_somoss';
+  info: {
+    displayName: 'QuemSomos';
+    pluralName: 'quem-somoss';
+    singularName: 'quem-somos';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::quem-somos.quem-somos'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
+  };
+}
+
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -1613,6 +1918,63 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUltimosEpisodiosUltimosEpisodios
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ultimos_episodioss';
+  info: {
+    displayName: 'UltimosEpisodios';
+    pluralName: 'ultimos-episodioss';
+    singularName: 'ultimos-episodios';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ultimos-episodios.ultimos-episodios'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
+  };
+}
+
 export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
   collectionName: 'videos';
   info: {
@@ -1635,6 +1997,62 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     videoExternoId: Schema.Attribute.String;
+  };
+}
+
+export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
+  collectionName: 'workshops';
+  info: {
+    displayName: 'Workshop';
+    pluralName: 'workshops';
+    singularName: 'workshop';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bloco: Schema.Attribute.String;
+    categoria: Schema.Attribute.String;
+    comentarios: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comentario.comentario'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    estatus: Schema.Attribute.String;
+    facebooklink: Schema.Attribute.String;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    host: Schema.Attribute.Text;
+    imagempodecast: Schema.Attribute.Media<'images'>;
+    instagramlink: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workshop.workshop'
+    > &
+      Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
+    notacaobiblica: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
+    subtitulo: Schema.Attribute.Text;
+    titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
+    whatsappLink: Schema.Attribute.String;
+    youtubevideoid: Schema.Attribute.String;
+    youtubevideolink: Schema.Attribute.String;
   };
 }
 
@@ -2167,10 +2585,14 @@ declare module '@strapi/strapi' {
       'api::eventoshomebaner.eventoshomebaner': ApiEventoshomebanerEventoshomebaner;
       'api::eventoshomeslider.eventoshomeslider': ApiEventoshomesliderEventoshomeslider;
       'api::eventosprimario.eventosprimario': ApiEventosprimarioEventosprimario;
+      'api::explore-nosso-universo.explore-nosso-universo': ApiExploreNossoUniversoExploreNossoUniverso;
       'api::global.global': ApiGlobalGlobal;
+      'api::heroes.heroes': ApiHeroesHeroes;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::home.home': ApiHomeHome;
       'api::menu.menu': ApiMenuMenu;
+      'api::momentos-impactantes.momentos-impactantes': ApiMomentosImpactantesMomentosImpactantes;
+      'api::momentos-que-marcaram.momentos-que-marcaram': ApiMomentosQueMarcaramMomentosQueMarcaram;
       'api::navabar.navabar': ApiNavabarNavabar;
       'api::newsrelated.newsrelated': ApiNewsrelatedNewsrelated;
       'api::nossos-parceiro.nossos-parceiro': ApiNossosParceiroNossosParceiro;
@@ -2182,8 +2604,11 @@ declare module '@strapi/strapi' {
       'api::podcaste.podcaste': ApiPodcastePodcaste;
       'api::podefe-midia.podefe-midia': ApiPodefeMidiaPodefeMidia;
       'api::publicidade.publicidade': ApiPublicidadePublicidade;
+      'api::quem-somos.quem-somos': ApiQuemSomosQuemSomos;
       'api::tag.tag': ApiTagTag;
+      'api::ultimos-episodios.ultimos-episodios': ApiUltimosEpisodiosUltimosEpisodios;
       'api::video.video': ApiVideoVideo;
+      'api::workshop.workshop': ApiWorkshopWorkshop;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

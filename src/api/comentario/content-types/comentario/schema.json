@@ -34,6 +34,55 @@
       "onDelete": "cascade",
       "inversedBy": "comentarios"
     },
+    "exploreNossoUniverso": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::explore-nosso-universo.explore-nosso-universo",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "ultimosEpisodios": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ultimos-episodios.ultimos-episodios",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "workshop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workshop.workshop",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "momentosImpactantes": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::momentos-impactantes.momentos-impactantes",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "momentosQueMarcaram": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::momentos-que-marcaram.momentos-que-marcaram",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "quemSomos": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quem-somos.quem-somos",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
+    "heroes": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::heroes.heroes",
+      "onDelete": "cascade",
+      "inversedBy": "comentarios"
+    },
     "noticia": {
       "type": "relation",
       "relation": "manyToOne",

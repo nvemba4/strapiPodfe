@@ -1,0 +1,43 @@
+{
+    "kind": "collectionType",
+    "collectionName": "equipas",
+    "info": {
+        "singularName": "equipa",
+        "pluralName": "equipas",
+        "displayName": "equipa"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "nome": {
+            "type": "string"
+        },
+        "categoria": {
+            "type": "string"
+        },
+        "descricao": {
+            "type": "text"
+        },
+        "linkfacebook": {
+            "type": "string"
+        },
+        "linkinstagram": {
+            "type": "string"
+        },
+        "linkind": {
+            "type": "string"
+        },
+        "imagem": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "ocupacao": {
+            "type": "string"
+        }
+    }
+}

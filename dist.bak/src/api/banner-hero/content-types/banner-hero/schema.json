@@ -1,0 +1,37 @@
+{
+    "kind": "collectionType",
+    "collectionName": "banner_heroes",
+    "info": {
+        "singularName": "banner-hero",
+        "pluralName": "banner-heroes",
+        "displayName": "Slider Hero"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "titulo": {
+            "type": "text"
+        },
+        "subtitulo": {
+            "type": "text"
+        },
+        "descricao": {
+            "type": "text"
+        },
+        "slug": {
+            "type": "uid"
+        },
+        "imagem": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "link": {
+            "type": "string"
+        }
+    }
+}

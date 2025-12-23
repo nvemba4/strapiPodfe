@@ -1,0 +1,50 @@
+{
+    "kind": "collectionType",
+    "collectionName": "nossos_parceiros",
+    "info": {
+        "singularName": "nossos-parceiro",
+        "pluralName": "nossos-parceiros",
+        "displayName": "NossosParceiro"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "titulo": {
+            "type": "string"
+        },
+        "imagem": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "descricao": {
+            "type": "text"
+        },
+        "estatus": {
+            "type": "string"
+        },
+        "categoria": {
+            "type": "string"
+        },
+        "bloco": {
+            "type": "string"
+        },
+        "imagebannerbackground": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "link": {
+            "type": "string"
+        },
+        "linkunico": {
+            "type": "uid"
+        }
+    }
+}
