@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "indicativos_podfes",
+  "info": {
+    "singularName": "indicativos-podfe",
+    "pluralName": "indicativos-podfes",
+    "displayName": "Indicativos Podfe"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "episodios": {
+      "type": "integer"
+    },
+    "vidasImpactadas": {
+      "type": "integer"
+    },
+    "accoesSociais": {
+      "type": "integer"
+    },
+    "paises": {
+      "type": "integer"
+    }
+  }
+}

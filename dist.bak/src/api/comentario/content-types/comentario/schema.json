@@ -1,0 +1,91 @@
+{
+    "kind": "collectionType",
+    "collectionName": "comentarios",
+    "info": {
+        "singularName": "comentario",
+        "pluralName": "comentarios",
+        "displayName": "Comentario"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "texto": {
+            "type": "text"
+        },
+        "autor": {
+            "type": "string"
+        },
+        "publicado": {
+            "type": "date"
+        },
+        "evento": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::evento.evento",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "podcaste": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::podcaste.podcaste",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "exploreNossoUniverso": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::explore-nosso-universo.explore-nosso-universo",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "ultimosEpisodios": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::ultimos-episodios.ultimos-episodios",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "workshop": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::workshop.workshop",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "momentosImpactantes": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::momentos-impactantes.momentos-impactantes",
+            "onDelete": "cascade",
+            "inversedBy": "comentarios"
+        },
+        "noticia": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::noticiaprincipal.noticiaprincipal",
+            "onDelete": "cascade",
+            "inversedBy": "comentario"
+        },
+        "parent": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::comentario.comentario",
+            "inversedBy": "comentarios"
+        },
+        "comentarios": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::comentario.comentario",
+            "mappedBy": "parent"
+        },
+        "noticiaId": {
+            "type": "integer"
+        },
+        "eventoId": {
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsrelateds",
+  "info": {
+    "singularName": "newsrelated",
+    "pluralName": "newsrelateds",
+    "displayName": "newsrelated"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "related": {
+      "type": "string"
+    }
+  }
+}

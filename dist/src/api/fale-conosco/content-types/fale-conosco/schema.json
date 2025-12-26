@@ -1,0 +1,40 @@
+{
+    "kind": "collectionType",
+    "collectionName": "fale_conoscos",
+    "info": {
+        "singularName": "fale-conosco",
+        "pluralName": "fale-conoscos",
+        "displayName": "Fale Conosco"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "nome": {
+            "type": "text"
+        },
+        "email": {
+            "type": "email"
+        },
+        "whatsapp": {
+            "type": "text"
+        },
+        "assunto": {
+            "type": "text"
+        },
+        "departamento": {
+            "type": "enumeration",
+            "enum": [
+                "Eventos",
+                "Midia",
+                "Parceria",
+                "Voluntariado",
+                "Suporte técnico"
+            ]
+        },
+        "mensagem": {
+            "type": "text"
+        }
+    }
+}

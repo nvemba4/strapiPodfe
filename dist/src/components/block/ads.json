@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_block_ads",
+    "info": {
+        "displayName": "Ads"
+    },
+    "options": {},
+    "attributes": {
+        "image": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": [
+                "images"
+            ]
+        }
+    },
+    "config": {}
+}

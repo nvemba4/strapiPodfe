@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coordenadas_bancarias",
+  "info": {
+    "singularName": "coordenada-bancaria",
+    "pluralName": "coordenadas-bancarias",
+    "displayName": "Coordenadas Bancarias"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nomePais": {
+      "type": "text"
+    },
+    "nomeConta": {
+      "type": "text"
+    },
+    "nomeBanco": {
+      "type": "text"
+    },
+    "ibanConta": {
+      "type": "text"
+    },
+    "contactoWhatsapp": {
+      "type": "text"
+    },
+    "bandeiraPaisImagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "documentoIdEvento": {
+      "type": "text"
+    },
+    "eventoTitulo": {
+      "type": "text"
+    }
+  }
+}

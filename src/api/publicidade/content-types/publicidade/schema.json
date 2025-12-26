@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publicidades",
+  "info": {
+    "singularName": "publicidade",
+    "pluralName": "publicidades",
+    "displayName": "Publicidade"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "tipobaner": {
+      "type": "string"
+    },
+    "estatus": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "string"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bloco": {
+      "type": "string"
+    }
+  }
+}

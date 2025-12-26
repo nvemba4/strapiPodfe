@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adsverticals",
+  "info": {
+    "singularName": "adsvertical",
+    "pluralName": "adsverticals",
+    "displayName": "Adsvertical"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_hero_sections",
+  "info": {
+    "displayName": "Hero section"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "slider_hero": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner-hero.banner-hero"
+    }
+  },
+  "config": {}
+}

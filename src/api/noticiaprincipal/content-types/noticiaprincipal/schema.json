@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "noticiaprincipals",
+  "info": {
+    "singularName": "noticiaprincipal",
+    "pluralName": "noticiaprincipals",
+    "displayName": "Noticia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "text"
+    },
+    "subtitulo": {
+      "type": "text"
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "data": {
+      "type": "date"
+    },
+    "horas": {
+      "type": "time"
+    },
+    "categoria": {
+      "type": "string"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "autor": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "text"
+    },
+    "bloco": {
+      "type": "string"
+    },
+    "comentario": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comentario.comentario",
+      "mappedBy": "noticia"
+    }
+  }
+}
