@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doacao_banners",
+  "info": {
+    "singularName": "doacao-banner",
+    "pluralName": "doacao-banners",
+    "displayName": "Doacao Banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

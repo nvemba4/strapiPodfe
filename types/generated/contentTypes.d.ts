@@ -844,6 +844,135 @@ export interface ApiCoordenadaBancariaCoordenadaBancaria
   };
 }
 
+export interface ApiDoacaoBannerDoacaoBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'doacao_banners';
+  info: {
+    displayName: 'Doacao Banner';
+    pluralName: 'doacao-banners';
+    singularName: 'doacao-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doacao-banner.doacao-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDoacaoFormaContribuicaoDoacaoFormaContribuicao
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'doacao_forma_contribuicaos';
+  info: {
+    displayName: 'Doacao Forma Contribuicao';
+    pluralName: 'doacao-forma-contribuicaos';
+    singularName: 'doacao-forma-contribuicao';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doacao-forma-contribuicao.doacao-forma-contribuicao'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitulo: Schema.Attribute.String;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDoacaoHeroDoacaoHero extends Struct.CollectionTypeSchema {
+  collectionName: 'doacao_heroes';
+  info: {
+    displayName: 'Doacao Hero';
+    pluralName: 'doacao-heroes';
+    singularName: 'doacao-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doacao-hero.doacao-hero'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitulo: Schema.Attribute.String;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDoacaoOndeInvestirDoacaoOndeInvestir
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'doacao_onde_investirs';
+  info: {
+    displayName: 'Doacao Onde Investir';
+    pluralName: 'doacao-onde-investirs';
+    singularName: 'doacao-onde-investir';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::doacao-onde-investir.doacao-onde-investir'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDoacaoDoacao extends Struct.CollectionTypeSchema {
   collectionName: 'doacaos';
   info: {
@@ -2741,6 +2870,10 @@ declare module '@strapi/strapi' {
       'api::comentario.comentario': ApiComentarioComentario;
       'api::contacto.contacto': ApiContactoContacto;
       'api::coordenada-bancaria.coordenada-bancaria': ApiCoordenadaBancariaCoordenadaBancaria;
+      'api::doacao-banner.doacao-banner': ApiDoacaoBannerDoacaoBanner;
+      'api::doacao-forma-contribuicao.doacao-forma-contribuicao': ApiDoacaoFormaContribuicaoDoacaoFormaContribuicao;
+      'api::doacao-hero.doacao-hero': ApiDoacaoHeroDoacaoHero;
+      'api::doacao-onde-investir.doacao-onde-investir': ApiDoacaoOndeInvestirDoacaoOndeInvestir;
       'api::doacao.doacao': ApiDoacaoDoacao;
       'api::doepodfebaner.doepodfebaner': ApiDoepodfebanerDoepodfebaner;
       'api::episodiosrecente.episodiosrecente': ApiEpisodiosrecenteEpisodiosrecente;
