@@ -792,6 +792,8 @@ export interface ApiContactoContacto extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    heroImagembackground: Schema.Attribute.Media<'images'>;
     linhaDiretaContacto: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizacao: Schema.Attribute.Text;
@@ -801,6 +803,7 @@ export interface ApiContactoContacto extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1820,6 +1823,7 @@ export interface ApiNoticiaprincipalNoticiaprincipal
     descricao: Schema.Attribute.Text;
     horas: Schema.Attribute.Time;
     imagem: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

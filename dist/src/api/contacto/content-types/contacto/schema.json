@@ -22,6 +22,19 @@
         },
         "linhaDiretaContacto": {
             "type": "text"
+        },
+        "titulo": {
+            "type": "string"
+        },
+        "descricao": {
+            "type": "text"
+        },
+        "heroImagembackground": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
         }
     }
 }

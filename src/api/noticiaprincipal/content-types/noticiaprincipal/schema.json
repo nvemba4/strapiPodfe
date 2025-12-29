@@ -29,6 +29,9 @@
     "categoria": {
       "type": "string"
     },
+    "link": {
+      "type": "string"
+    },
     "imagem": {
       "type": "media",
       "multiple": false,
