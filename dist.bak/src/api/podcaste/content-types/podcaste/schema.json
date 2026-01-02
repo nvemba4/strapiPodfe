@@ -76,6 +76,13 @@
                 "images"
             ]
         },
+        "imagemMobile": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
         "estatus": {
             "type": "string"
         },

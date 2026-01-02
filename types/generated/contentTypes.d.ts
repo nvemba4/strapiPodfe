@@ -2002,6 +2002,7 @@ export interface ApiPodcastePodcaste extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     host: Schema.Attribute.Text;
+    imagemMobile: Schema.Attribute.Media<'images'>;
     imagempodecast: Schema.Attribute.Media<'images'>;
     instagramlink: Schema.Attribute.String;
     likes: Schema.Attribute.Integer;
