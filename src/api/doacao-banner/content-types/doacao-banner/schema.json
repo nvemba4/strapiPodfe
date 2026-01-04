@@ -24,6 +24,13 @@
         "images"
       ]
     },
+    "imagemMobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "link": {
       "type": "string"
     }

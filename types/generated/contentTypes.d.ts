@@ -864,6 +864,7 @@ export interface ApiDoacaoBannerDoacaoBanner
       Schema.Attribute.Private;
     descricao: Schema.Attribute.Text;
     imagem: Schema.Attribute.Media<'images'>;
+    imagemMobile: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2327,6 +2328,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     host: Schema.Attribute.Text;
+    imagemMobile: Schema.Attribute.Media<'images'>;
     imagempodecast: Schema.Attribute.Media<'images'>;
     instagramlink: Schema.Attribute.String;
     likes: Schema.Attribute.Integer;
