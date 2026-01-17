@@ -1,0 +1,40 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contactos",
+    "info": {
+        "singularName": "contacto",
+        "pluralName": "contactos",
+        "displayName": "Contacto"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "contacto": {
+            "type": "text"
+        },
+        "whatsapp": {
+            "type": "text"
+        },
+        "localizacao": {
+            "type": "text"
+        },
+        "linhaDiretaContacto": {
+            "type": "text"
+        },
+        "titulo": {
+            "type": "string"
+        },
+        "descricao": {
+            "type": "text"
+        },
+        "heroImagembackground": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        }
+    }
+}

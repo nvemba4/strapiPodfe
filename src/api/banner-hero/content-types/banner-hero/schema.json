@@ -20,8 +20,30 @@
     "descricao": {
       "type": "text"
     },
+    "messagem": {
+      "type": "text"
+    },
+    "guest": {
+      "type": "string"
+    },
+    "guestdescricao": {
+      "type": "text"
+    },
+    "guestimagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "slug": {
       "type": "uid"
+    },
+    "episodio": {
+      "type": "text"
     },
     "imagem": {
       "type": "media",
@@ -29,6 +51,16 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "imagemMobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "videoId": {
+      "type": "string"
     },
     "link": {
       "type": "string"

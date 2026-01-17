@@ -633,7 +633,14 @@ export interface ApiBannerHeroBannerHero extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descricao: Schema.Attribute.Text;
+    episodio: Schema.Attribute.Text;
+    guest: Schema.Attribute.String;
+    guestdescricao: Schema.Attribute.Text;
+    guestimagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     imagem: Schema.Attribute.Media<'images'>;
+    imagemMobile: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -641,6 +648,7 @@ export interface ApiBannerHeroBannerHero extends Struct.CollectionTypeSchema {
       'api::banner-hero.banner-hero'
     > &
       Schema.Attribute.Private;
+    messagem: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
     subtitulo: Schema.Attribute.Text;
@@ -648,6 +656,7 @@ export interface ApiBannerHeroBannerHero extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    videoId: Schema.Attribute.String;
   };
 }
 
