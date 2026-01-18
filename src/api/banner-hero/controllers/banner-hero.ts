@@ -1,5 +1,5 @@
 /**
- * banner-hero controller
+ * * banner-hero controller
  */
 
 import { factories } from '@strapi/strapi'

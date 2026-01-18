@@ -1,6 +1,6 @@
 "use strict";
 /**
- * banner-hero controller
+ * * banner-hero controller
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
